@@ -6431,8 +6431,8 @@ math-field:focus-within { border-color: var(--grid); }
 #dash-grid .card.picked .pick { background: #fff; border-color: #2563eb; }
 #dash-grid .card.picked .pick::after { background: #2563eb; }
 #dash-grid .card.picked { outline: 3px solid #2563eb; outline-offset: -1px; }
-body.testing #pdf-btn, body.testing #file-btn, body.testing .menu-wrap:has(#file-btn), body.testing .shade-chip, body.testing #rail .tool[data-tool=explore], body.testing #ax-fns, body.testing .ax-fnopt { display: none !important; }
-@media print { body.testing > * { display: none !important; } body.testing::after { content: 'Printing is turned off during a test.'; display: block; font: 20px sans-serif; padding: 40px; } }
+body.nofile #cast-btn, body.testing #cast-btn, body.nofile #pdf-btn, body.nofile #file-btn, body.nofile .menu-wrap:has(#file-btn), body.testing #pdf-btn, body.testing #file-btn, body.testing .menu-wrap:has(#file-btn), body.testing .shade-chip, body.testing #rail .tool[data-tool=explore], body.testing #ax-fns, body.testing .ax-fnopt { display: none !important; }
+@media print { body.testing > *, body.nofile > * { display: none !important; } body.testing::after { content: 'Printing is turned off during a test.'; display: block; font: 20px sans-serif; padding: 40px; } body.nofile:not(.testing)::after { content: 'Your teacher has turned off saving and printing in this class.'; display: block; font: 20px sans-serif; padding: 40px; } }
 .empty { grid-column: 1 / -1; text-align: center; color: var(--ink-2); padding: 60px 20px; }
 #focus { position: fixed; inset: 0; background: rgba(20,30,50,.92); z-index: 95; display: none; flex-direction: column; }
 #focus.open { display: flex; }
@@ -6812,6 +6812,17 @@ body.testing #pdf-btn, body.testing #file-btn, body.testing .menu-wrap:has(#file
 .fl-chip.saving .ic{color:#1565c0}
 .fl-chip.error,.fl-chip.warn{border-color:#e0a030;background:#fff8e1;color:#5d4300}
 .p2p-more{margin:12px 0 4px;border:1px solid var(--line,#c9d3e1);border-radius:10px;padding:8px 12px}.p2p-more summary{cursor:pointer;font-weight:600}.p2p-more .field input{width:100%}
+.url-row{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}.url-row .url{margin:0}#join-copy{flex:none}
+label.chk.spg{display:flex;gap:8px;align-items:center;margin:12px 0 2px;font-size:14px;cursor:pointer}
+#dash-grid .card .name em.xp{font-style:normal;font-size:12px;font-weight:600;background:#fef3c7;color:#92400e;border-radius:999px;padding:2px 8px;margin-left:auto}
+.thumb .own-tag{position:absolute;left:4px;top:4px;font-style:normal;font-size:10px;font-weight:700;background:#fef3c7;color:#92400e;border-radius:6px;padding:1px 5px;pointer-events:none}
+#dash-grid .card .name em.oldb{font-style:normal;font-size:12px;font-weight:700;background:#fee2e2;color:#991b1b;border-radius:999px;padding:2px 8px;margin-left:auto}
+#dash-grid .card .name em.oldb + em.xp{margin-left:6px}
+.apps-share-bar{grid-column:1/-1;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:8px 12px;font-size:13px}
+.apps-share-bar .row{display:flex;gap:6px}
+.app-wrap{display:flex;flex-direction:column;gap:4px}.app-wrap .app-card{flex:1}
+.app-share{display:flex;gap:6px;align-items:center;font-size:13px;padding:2px 6px;cursor:pointer;color:#1e3a8a}.app-share span{color:#64748b}
+.myex.ro .myex-l{color:#1e3a8a}
 </style>
 </head>
 <body>
@@ -8300,6 +8311,30 @@ The result is given as ordered pairs, with D and R as sets of numbers.</li>
 <li><b>Android phone or tablet</b> (Android 8 or later): Chrome on a phone or tablet can't cast a single tab, so the whole screen is sent. Turn the tablet sideways, open the <b>Google Home</b> app › <b>Devices</b>, touch and hold the Chromecast's tile › <b>Cast</b> › <b>Cast my screen</b> (or <b>Cast one app</b> and pick Chrome). Some tablets have a <b>Cast</b>, <b>Screen cast</b> or <b>Smart View</b> button when you swipe down from the top. Back on the board, tap <b>TV layout (full screen)</b> to hide Chrome's address bar and the page thumbnails. The TV shows everything on the screen, including the keypad, so turn on Do Not Disturb. To stop, touch and hold the tile in Google Home › <b>Stop mirroring</b>.</li>
 <li><b>iPad or iPhone</b>: an iPad can't send its screen to a Chromecast with Apple's or Google's apps; it mirrors to an Apple TV or an AirPlay TV (<b>Screen Mirroring</b> in Control Centre). For a Chromecast, use an Android tablet, a Chromebook or a computer.</li>
 </ul>
+<h3>Students' own pages</h3>
+<p>In a live class, and also during a test, a student can add pages of their own when they run out of room: <b>+ Page</b> adds a blank page right after the page they are on. Each student adds only what they need, up to 20 pages, and the pages you put on your board stay the same for everyone.</p>
+<ul>
+<li>Their own pages say <b>My page</b> in their page list. They can delete only those pages (with undo), never yours.</li>
+<li>In <b>Class view</b>, a student who added pages shows a tag such as <b>+2 pages</b>. Click their board to see every page in order; their own pages say <i>added by the student</i>.</li>
+<li><b>Save all as PDF</b> includes them, in place, with the student's name and page number on every sheet.</li>
+<li>If you delete a page that a student added pages after, their pages move after the page before it. Nothing they wrote is lost.</li>
+<li>To turn this off, clear <b>Students can add their own pages</b> in the Live class window. Pages they already added stay. It is on when a class starts.</li>
+</ul>
+<p><b>Copy</b>, next to the link under the QR code, copies the link to paste in Google Classroom, an email or a chat, for a device whose camera won't read the code.</p>
+<p>Only the changes on a student's board travel to yours, not the whole page each time, so a long test with a full class stays quick. Your board checks its copy of each page and fetches the whole page again if anything doesn't match.</p>
+<h3>Saving and downloading on students' boards</h3>
+<p><b>Students can use File and Download PDF</b>, in the Live class window, decides whether students in your live class can save, download, back up or print their boards. It is on when a class starts; clear it to remove the <b>File</b> menu and <b>Download PDF</b> from every student's board (students who join later get it off too). During a test they are always removed, whatever this switch says, together with printing and the keyboard shortcuts.</p>
+<p>A student whose board is an older version of whiteboard-student.html shows a red <b>older board</b> tag in Class view, and a message tells you when they join. An older board may be missing new features and some test restrictions, so ask them to open the new student board (from the link, or the updated file in Google Drive).</p>
+<h3>Sharing Math apps cards with students</h3>
+<p>Students normally have only <b>Coding</b> in Math apps. During a live class, open <b>Math apps</b> on your board: every card has a <b>Share with students</b> switch (all off when a class starts), and <b>Share all</b> / <b>Share none</b> sit at the top. The Live class window shows how many cards are shared.</p>
+<ul>
+<li>A shared card appears in every student's Math apps at once (students who join later get it too) and they get a message. Turning it off removes it and closes it on their boards.</li>
+<li>A shared card also brings the black-strip tools that open it: <b>Limits</b> brings <i>Limit</i>, <b>Continuity</b> brings <i>Continuity</i>, <b>Rates of change and first principles</b> brings <i>First principles</i>, <b>Sketch a function, see its derivative</b> brings <i>Derivative</i> (and f′ on a graph), <b>Vectors, lines and planes</b> brings the vector tools. Solve, Evaluate, Simplify, Area and Increase / decrease and Concavity come only when you share every card.</li>
+<li>The examples you saved on a shared card come with it, under <b>Teacher's examples</b>. Students can load them but cannot save, change, delete or export examples.</li>
+<li>Students work in their own copy of the card; <i>Insert</i> puts the result on their own board, so it shows in Class view and in the class-set PDFs.</li>
+<li><b>During a test nothing is shared</b>: every shared card closes and disappears, with its black-strip tools, whatever the switches say. Your choices come back when the test ends. Outside a live class, whiteboard-student.html keeps its usual tools.</li>
+</ul>
+<p><b>Nothing leaves a student's board</b> while <b>Students can use File and Download PDF</b> is off, and always during a test: copying (Ctrl+C, Copy as picture, the math keyboard's Copy, selected text) works only inside the board and never reaches the device's clipboard or browser storage, the right-click menu on the board offers no <i>Save image</i> or <i>Copy image</i>, and <b>Cast</b> is hidden. A web page cannot stop a screenshot or a photo of the screen; on school-managed Chromebooks your IT team can turn screenshots off with a Chrome policy.</p>
 <h3>What students can and can't do over Wi-Fi</h3>
 <p>Browsers only allow the camera and full clipboard access on secure connections, and the classroom server is a plain connection. On a student laptop or Chromebook, <b>Take a photo</b> offers <b>Use my phone</b> instead, and <kbd>Ctrl</kbd>+<kbd>V</kbd> pastes what they copied on the board (to paste a picture from elsewhere, they can use <b>Image › Choose a picture</b>).</p>
 <h3>Test mode</h3>
@@ -13803,7 +13838,7 @@ function buildGraphPanel() {
     const what = par ? (names.get(par) === 'd' && names.get(fn) === 'v' ? 'velocity, the derivative of ' : names.get(par) === 'v' && names.get(fn) === 'a' ? 'acceleration, the derivative of ' : 'derivative of ') + names.get(par) : fn.of ? 'derivative of ' + fn.of : '';
     row.innerHTML = `<input type="checkbox" ${fn.hidden ? '' : 'checked'} aria-label="Show ${esc(lab)}"><i style="background:${fn.c || '#c62828'}"></i><span>${esc(lab)}${what ? `<br><small style="font-family:var(--font);color:var(--ink-2)">${esc(what)}</small>` : ''}</span>`;
     row.querySelector('input').onchange = ev => setFnHidden(ax, fn.e, !ev.target.checked);
-    if (own && xm !== 'deg' && !limited()) {
+    if (own && xm !== 'deg' && !stripOff('derivative')) {
       const dn = derivName(names.get(fn)), v = fnVar(ax.fns, fn);
       const d = document.createElement('button'); d.type = 'button'; d.textContent = dn; d.title = `Graph ${dn}(${v}), the derivative of ${names.get(fn)}(${v})`;
       d.onclick = ev => { ev.preventDefault(); addDerivativeFn(ax, fn); }; row.append(d);
@@ -14280,7 +14315,13 @@ function snapshot() { return { cur, pages: board.pages.map(p => ({ ...p, objects
 function pushHistory(pageOp) { if (!pageOp && pgLocked()) { lockedToast(); throw LOCK_STOP; } undoStack.push(snapshot()); if (undoStack.length > 80) undoStack.shift(); redoStack = []; }
 function restoreSnap(s) {
   const byId = new Map(board.pages.map(p => [p.id, p]));
-  if (role === 'student') { for (const sp of s.pages) { const p = byId.get(sp.id); if (p) { p.objects = sp.objects; p.rev++; } } }
+  if (role === 'student') {
+    // the teacher's pages keep coming from the teacher; only the student's writing and their own pages go back
+    for (const sp of s.pages) { const p = byId.get(sp.id); if (p && !p.own) { p.objects = sp.objects; p.rev++; } }
+    const here = new Set(board.pages.filter(p => !p.own).map(p => p.id));
+    const own = s.pages.filter(sp => sp.own).map(sp => { const p = byId.get(sp.id) || { ...sp }; p.objects = sp.objects; p.rev = (p.rev || 0) + 1; if (!here.has(p.after)) p.after = board.pages[0].id; return p; });
+    board.pages = placeOwn(board.pages.filter(p => !p.own), own);
+  }
   else board.pages = s.pages.map(sp => { const p = byId.get(sp.id); return { ...sp, base: p ? p.base : sp.base, unlocked: p ? p.unlocked : sp.unlocked, rev: (p ? p.rev : 0) + 1 }; });
   cur = Math.min(Math.max(0, s.cur), board.pages.length - 1);
   selected = null; afterPagesChanged(); changed(null);
@@ -14702,18 +14743,18 @@ function placeCtxBar() {
     if (editable) add('Edit', () => editObj(selected));
     if (hwStrokes(selItems()).length) add('✍ To math', recognizeSelection, 'Read this handwriting and turn it into a typed equation you can check and fix');
     const isLim = selected.t === 'math' && typeof LIMIT !== 'undefined' && LIMIT.isLimit(selected.latex);
-    if (selected.t === 'math' && !limited() && /\\begin\{(?:cases|dcases|rcases)\}/.test(selected.latex || '')) add('Continuity', () => openContinuityFrom(selected), 'Open this piecewise function in the Continuity card: its pieces are drawn and tested where they meet');
-    if (isLim && !limited()) add('Limit', () => openLimit(selected), 'Work out this limit step by step: substitution, factoring, the conjugate or substitution for roots, left and right limits');
-    if (selected.t === 'math' && !isLim && !limited()) add('Derivative', () => derivativeBelow(selected), 'Write the derivative of this function underneath it');
-    if (!isLim && !limited() && selected.t === 'math' && /x/.test(selected.latex) && !/<|>|\\[lg](eq?|t)(?![a-z])|≤|≥|\\int/.test(selected.latex) && (!/=/.test(selected.latex) || /^\s*([a-zA-Z](\\left)?\(\s*x\s*(\\right)?\)|y)\s*=[^=]*$/.test(selected.latex))) add('First principles', () => openFirstPrinciples(selected), 'Find the derivative from first principles: the limit of (f(x + h) − f(x))/h as h → 0, step by step');
+    if (selected.t === 'math' && !stripOff('continuity') && /\\begin\{(?:cases|dcases|rcases)\}/.test(selected.latex || '')) add('Continuity', () => openContinuityFrom(selected), 'Open this piecewise function in the Continuity card: its pieces are drawn and tested where they meet');
+    if (isLim && !stripOff('limit')) add('Limit', () => openLimit(selected), 'Work out this limit step by step: substitution, factoring, the conjugate or substitution for roots, left and right limits');
+    if (selected.t === 'math' && !isLim && !stripOff('derivative')) add('Derivative', () => derivativeBelow(selected), 'Write the derivative of this function underneath it');
+    if (!isLim && !stripOff('firstprinciples') && selected.t === 'math' && /x/.test(selected.latex) && !/<|>|\\[lg](eq?|t)(?![a-z])|≤|≥|\\int/.test(selected.latex) && (!/=/.test(selected.latex) || /^\s*([a-zA-Z](\\left)?\(\s*x\s*(\\right)?\)|y)\s*=[^=]*$/.test(selected.latex))) add('First principles', () => openFirstPrinciples(selected), 'Find the derivative from first principles: the limit of (f(x + h) − f(x))/h as h → 0, step by step');
     if (!isLim && selected.t === 'math' && !testLocks()) add('Graph', () => graphMath(selected), 'Graph this on a new graph or one already on the page');
-    if (!isLim && !limited() && selected.t === 'math' && /=|<|>|\\[lg](eq?|t)(?![a-z])|≤|≥/.test(selected.latex)) add('Solve', () => openSolve(selected), 'Solve this equation or inequality step by step');
-    if (!isLim && !limited() && selected.t === 'math' && !/<|>|\\[lg](eq?|t)(?![a-z])|≤|≥/.test(selected.latex) && (/^\s*\\int/.test(selected.latex) || !/=/.test(selected.latex) || /^\s*([a-zA-Z](\\left)?\(\s*[a-zA-Z]\s*(\\right)?\)|y)\s*=/.test(selected.latex))) add('Evaluate', () => openEvaluate(selected), 'The value at a point, the derivative at a point, or a definite integral, with steps');
-    if (!isLim && selected.t === 'math' && !/<|>|\\[lg](eq?|t)(?![a-z])|≤|≥|\\int/.test(selected.latex) && (!/=/.test(selected.latex) || /^\s*([a-zA-Z](\\left)?\(\s*[a-zA-Z]\s*(\\right)?\)|y)\s*=[^=]*$/.test(selected.latex)) && !limited()) add('Simplify', () => openSimplify(selected), 'Simplify this expression step by step: numbers, polynomials or rational expressions');
+    if (!isLim && !stripOff('solve') && selected.t === 'math' && /=|<|>|\\[lg](eq?|t)(?![a-z])|≤|≥/.test(selected.latex)) add('Solve', () => openSolve(selected), 'Solve this equation or inequality step by step');
+    if (!isLim && !stripOff('evaluate') && selected.t === 'math' && !/<|>|\\[lg](eq?|t)(?![a-z])|≤|≥/.test(selected.latex) && (/^\s*\\int/.test(selected.latex) || !/=/.test(selected.latex) || /^\s*([a-zA-Z](\\left)?\(\s*[a-zA-Z]\s*(\\right)?\)|y)\s*=/.test(selected.latex))) add('Evaluate', () => openEvaluate(selected), 'The value at a point, the derivative at a point, or a definite integral, with steps');
+    if (!isLim && selected.t === 'math' && !/<|>|\\[lg](eq?|t)(?![a-z])|≤|≥|\\int/.test(selected.latex) && (!/=/.test(selected.latex) || /^\s*([a-zA-Z](\\left)?\(\s*[a-zA-Z]\s*(\\right)?\)|y)\s*=[^=]*$/.test(selected.latex)) && !stripOff('simplify')) add('Simplify', () => openSimplify(selected), 'Simplify this expression step by step: numbers, polynomials or rational expressions');
     if (!isLim && selected.t === 'math' && !/<|>|\\[lg](eq?|t)(?![a-z])|≤|≥|\\int/.test(selected.latex) && (!/=/.test(selected.latex) || /^\s*([a-zA-Z](\\left)?\(\s*[a-zA-Z]\s*(\\right)?\)|y)\s*=[^=]*$/.test(selected.latex))) add('Factor', () => openFactor(selected), 'Factor a polynomial (rational roots, long division, the quadratic formula), or do long division of numbers or polynomials');
     if (vecHere) {
       const before = ctxbar.children.length;
-      let vb = false; if (!limited()) { try { vb = vecBarButtons(add, selItems()); } catch (e) { vb = false; } } else vb = selItems().some(o => o.t === 'math' && VB.looks(o.latex)) && !vecHere.equation;
+      let vb = false; if (!stripOff('vectors')) { try { vb = vecBarButtons(add, selItems()); } catch (e) { vb = false; } } else vb = selItems().some(o => o.t === 'math' && VB.looks(o.latex)) && !vecHere.equation;
       if (vb || vecHere.equation) {   // vectors and points: Graph, Simplify … do not apply to them (an equation keeps Solve)
         const drop = ['Derivative', 'First principles', 'Graph', 'Evaluate', 'Simplify', 'Factor', ...(vb ? ['Solve'] : [])];
         [...ctxbar.children].slice(0, before).forEach(b => { if (drop.includes(b.textContent)) b.remove(); });
@@ -14726,12 +14767,12 @@ function placeCtxBar() {
       add((selected.skTp ? '✓ ' : '') + 'Turning points', flip('skTp'), selected.skTp ? 'Hide the turning points (local max and min)' : 'Show the turning points (local max and min) with their true coordinates');
       add((selected.skIp ? '✓ ' : '') + 'Inflection points', flip('skIp'), selected.skIp ? 'Hide the points of inflection' : 'Show the points of inflection (where the concavity changes) with their true coordinates');
       const ivFlip = (k, other) => () => { pushHistory(); if (selected[k]) delete selected[k]; else { selected[k] = true; delete selected[other]; } changed(page()); requestRender(true); };
-      if (!limited()) add((selected.skMono ? '✓ ' : '') + 'Increase / decrease', ivFlip('skMono', 'skConc'), selected.skMono ? 'Hide the intervals of increase and decrease' : 'Show the intervals where the function increases (green) and decreases (red), with a key in interval notation');
-      if (!limited()) add((selected.skConc ? '✓ ' : '') + 'Concavity', ivFlip('skConc', 'skMono'), selected.skConc ? 'Hide the intervals of concavity' : 'Show the intervals where the graph is concave up (blue) and concave down (purple), with a key in interval notation');
+      if (!stripOff('mono')) add((selected.skMono ? '✓ ' : '') + 'Increase / decrease', ivFlip('skMono', 'skConc'), selected.skMono ? 'Hide the intervals of increase and decrease' : 'Show the intervals where the function increases (green) and decreases (red), with a key in interval notation');
+      if (!stripOff('mono')) add((selected.skConc ? '✓ ' : '') + 'Concavity', ivFlip('skConc', 'skMono'), selected.skConc ? 'Hide the intervals of concavity' : 'Show the intervals where the graph is concave up (blue) and concave down (purple), with a key in interval notation');
       if ((selected.skl || []).some(e => e && e.lp)) add('Reset labels', () => { pushHistory(); selected.skl = []; changed(page()); requestRender(true); }, 'Put every label of this sketch back in its own place');
     }
-    if (selected.t === 'axes' && !skOn && visFns(selected).length) { if (!limited()) add('Area', () => openArea(selected), 'Shade and find the area under a graph or between two graphs'); if ((selected.areas || []).length && !limited()) add('Edit area', () => openArea(selected, selected.areas.length - 1), 'Change a shaded area: its old shading is replaced by the new one'); add('Table of values', () => openTable(selected), 'Make a table of values for a function on this graph'); if (!limited()) add('Solid', () => openSolid(selected), 'Build a solid on the region (cross-sections or revolution about y = b), animated in 3D, with its volume'); }
-    if (selected.t === 'axes' && !skOn && visFns(selected).length && !limited()) { add('Increase / decrease', () => openMono(selected, 'mono'), 'Intervals of increase and decrease and local max and min, with a sign chart of f′'); add('Concavity', () => openMono(selected, 'conc'), 'Intervals of concave up and concave down and points of inflection, with a sign chart of f″');  if (selected.an && (selected.anl || []).some(e => e && e.lp)) add('Reset labels', () => { pushHistory(); selected.anl = []; changed(page()); requestRender(true); }, 'Put the max, min and inflection labels back next to their points'); }
+    if (selected.t === 'axes' && !skOn && visFns(selected).length) { if (!stripOff('area')) add('Area', () => openArea(selected), 'Shade and find the area under a graph or between two graphs'); if ((selected.areas || []).length && !stripOff('area')) add('Edit area', () => openArea(selected, selected.areas.length - 1), 'Change a shaded area: its old shading is replaced by the new one'); add('Table of values', () => openTable(selected), 'Make a table of values for a function on this graph'); if (!limited()) add('Solid', () => openSolid(selected), 'Build a solid on the region (cross-sections or revolution about y = b), animated in 3D, with its volume'); }
+    if (selected.t === 'axes' && !skOn && visFns(selected).length && !stripOff('mono')) { add('Increase / decrease', () => openMono(selected, 'mono'), 'Intervals of increase and decrease and local max and min, with a sign chart of f′'); add('Concavity', () => openMono(selected, 'conc'), 'Intervals of concave up and concave down and points of inflection, with a sign chart of f″');  if (selected.an && (selected.anl || []).some(e => e && e.lp)) add('Reset labels', () => { pushHistory(); selected.anl = []; changed(page()); requestRender(true); }, 'Put the max, min and inflection labels back next to their points'); }
     if (selected.t === 'axes' && !skOn) { add('Zoom in', () => graphZoomBtn(selected, 1 / 1.6), 'Zoom in on this graph: its window gets smaller (in Explore, the mouse wheel zooms around the pointer)'); add('Zoom out', () => graphZoomBtn(selected, 1.6), 'Zoom out on this graph: its window gets bigger'); if (visFns(selected).length) add('Fit y', () => graphFitY(selected), 'Set the y-axis to show the functions over this x-window: small changes, like a max of 0.0175, become visible'); if (selected.win0) add('Reset zoom', () => graphZoomReset(selected), 'Back to the window this graph had before zooming'); }
     if (selected.t === 'axes' && !skOn) add('Data & regression', () => openRegression(selected), 'Type x and y values, plot them, and find the function that models them best (or change the model)');
     if (selected.t === 'axes' && !skOn && (selected.fns || []).length) add('Explore points', () => setTool('explore'));
@@ -14927,11 +14968,13 @@ function newPageBg() {
   return { type: 'grid' };
 }
 function addPage() {
+  if (role === 'student') return addOwnPage();
   if (!canEditPages()) return toast('Your teacher controls the pages in a live class.');
   pushHistory(true);
   board.pages.splice(cur + 1, 0, newPage(newPageBg())); cur++; afterPagesChanged(); changed(page());
 }
 function dupPage() {
+  if (role === 'student') return toast('Use + Page to add a page of your own.');
   if (!canEditPages()) return toast('Your teacher controls the pages in a live class.');
   pushHistory(true); const src = page();
   const copy = { ...JSON.parse(JSON.stringify({ ...src, rev: 0 })), id: uid() };
@@ -14939,6 +14982,7 @@ function dupPage() {
   board.pages.splice(cur + 1, 0, copy); cur++; afterPagesChanged(); changed(page());
 }
 async function delPage() {
+  if (role === 'student') return delOwnPage();
   if (!canEditPages()) return toast('Your teacher controls the pages in a live class.');
   if (board.pages.length === 1) { if (page().objects.length && !(await ask('Clear this page?', 'This is the only page, so it will be emptied instead.', [['Clear page', 'yes', 'danger']]))) return; pushHistory(true); page().objects = []; changed(page()); return; }
   if (page().objects.length && !(await ask('Delete this page?', `Page ${cur + 1} and everything on it will be removed. You can undo this.`, [['Delete page', 'yes', 'danger']]))) return;
@@ -14952,12 +14996,14 @@ function afterPagesChanged() {
   if (page() && !sealedIds.has(page().id)) sealPage(page());
   syncLockBtn();
   const ro = !canEditPages();
-  ['#add-page', '#dup-page', '#del-page', '#add-page-top'].forEach(s => $(s).disabled = ro);
+  if (role === 'student') { const no = !(spagesOn && ownCount() < OWN_MAX); $('#add-page').disabled = no; $('#add-page-top').disabled = no; $('#dup-page').disabled = true; $('#del-page').disabled = !(page() && page().own); }
+  else ['#add-page', '#dup-page', '#del-page', '#add-page-top'].forEach(s => $(s).disabled = ro);
   const list = $('#pages-list'); list.innerHTML = ''; thumbCanvases.clear();
   board.pages.forEach((p, i) => {
     const b = document.createElement('button'); b.className = 'thumb' + (i === cur ? ' on' : '') + (pagePick.has(p.id) ? ' picked' : ''); b.setAttribute('aria-label', 'Go to page ' + (i + 1));
     const c = document.createElement('canvas'); c.width = 224; c.height = 140;
     const sp = document.createElement('span'); sp.textContent = i + 1;
+    if (p.own) { b.classList.add('own'); b.title = 'A page you added'; const m = document.createElement('em'); m.className = 'own-tag'; m.textContent = 'My page'; b.append(m); }
     const tk = document.createElement('i'); tk.className = 'tick'; tk.textContent = '✓';
     b.append(c, sp, tk);
     b.onclick = () => { hideZoom(); if (!pageSelecting && smallScreen()) document.body.classList.remove('pages-open'); if (pageSelecting) { pagePick.has(p.id) ? pagePick.delete(p.id) : pagePick.add(p.id); b.classList.toggle('picked'); syncPageSel(); } else gotoPage(i); };
@@ -15618,6 +15664,7 @@ document.addEventListener('keydown', e => {
   if ((e.ctrlKey || e.metaKey) && k === 'z') { e.preventDefault(); e.shiftKey ? redo() : undo(); return; }
   if ((e.ctrlKey || e.metaKey) && k === 'y') { e.preventDefault(); redo(); return; }
   if ((e.ctrlKey || e.metaKey) && (k === 's' || k === 'p') && testLocks()) { e.preventDefault(); toast('Not available during a test.'); return; }
+  if ((e.ctrlKey || e.metaKey) && (k === 's' || k === 'p') && fileOff()) { e.preventDefault(); toast('Your teacher has turned off saving and downloading in this class.'); return; }
   if ((e.ctrlKey || e.metaKey) && k === 's') { e.preventDefault(); saveFile(); return; }
   if ((e.ctrlKey || e.metaKey) && k === 'c' && selected) { e.preventDefault(); copySelection(false); return; }
   if ((e.ctrlKey || e.metaKey) && k === 'x' && selected) { e.preventDefault(); copySelection(true); return; }
@@ -20604,14 +20651,30 @@ const APPS = [
   ['code', 'Coding: flowcharts and pseudocode', 'Premade Grade 9 programs; run them, step through them, write your own.', () => openCode()],
 ];
 function openApps() {
-  const g = $('#apps-grid'), lim = limited();
-  if (g.dataset.lim !== String(lim)) { g.innerHTML = ''; g.dataset.lim = String(lim); }   // students see only Coding
-  if (!g.children.length) APPS.filter(([id]) => !lim || id === 'code').forEach(([id, t, d, fn]) => {
-    const b = document.createElement('button'); b.className = 'app-card'; b.dataset.app = id;
-    b.innerHTML = `<b>${esc(t)}</b><span>${esc(d)}</span>`;
-    b.onclick = () => { closeModal('m-apps'); fn(); };
-    g.append(b);
-  });
+  const g = $('#apps-grid'), lim = limited(), teach = role === 'teacher';
+  // students see Coding, and the cards their teacher shares in a live class
+  const key = JSON.stringify([lim, teach, lim ? CARD_IDS.filter(cardOn) : 0]);
+  if (g.dataset.lim !== key) { g.innerHTML = ''; g.dataset.lim = key; }
+  if (!g.children.length) {
+    if (teach) {
+      const h = document.createElement('div'); h.className = 'apps-share-bar';
+      h.innerHTML = `<span><b>Live class:</b> <span id="apps-share-n"></span>. A shared card also gives students the black-strip tools that open it; sharing every card shares every tool. Nothing is shared during a test.</span><span class="row"><button class="btn" data-sh="all">Share all</button><button class="btn" data-sh="none">Share none</button></span>`;
+      h.querySelectorAll('[data-sh]').forEach(btn => btn.onclick = () => { const on = btn.dataset.sh === 'all'; CARD_IDS.forEach(id => { if (on) cardShare[id] = true; else delete cardShare[id]; }); g.querySelectorAll('input[data-share]').forEach(i => i.checked = on); teacherCardsPush(); appsShareLine(); });
+      g.append(h);
+    }
+    APPS.filter(([id]) => !lim || id === 'code' || cardOn(id)).forEach(([id, t, d, fn]) => {
+      const b = document.createElement('button'); b.className = 'app-card'; b.dataset.app = id;
+      b.innerHTML = `<b>${esc(t)}</b><span>${esc(d)}</span>`;
+      b.onclick = () => { closeModal('m-apps'); fn(); };
+      if (!teach) { g.append(b); return; }
+      const w = document.createElement('div'); w.className = 'app-wrap';
+      const sw = document.createElement('label'); sw.className = 'app-share';
+      if (id === 'code') sw.innerHTML = '<span>Always open for students</span>';
+      else { sw.innerHTML = `<input type="checkbox" data-share="${id}" ${cardShare[id] ? 'checked' : ''}> Share with students`; sw.querySelector('input').onchange = e => setCardShare(id, e.target.checked); }
+      w.append(b, sw); g.append(w);
+    });
+    appsShareLine();
+  }
   openModal('m-apps');
 }
 
@@ -24783,7 +24846,7 @@ function geoCopyLabels() {
   const objs = geoLabelTexts(); if (!objs.length) { toast('Click one or more labels on the graph first.'); return; }
   const marker = objs.map(o => o.s).join('\n');
   setInternalClip(objs, marker);
-  if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(marker).then(() => { clipSysOk = true; }, () => {});
+  if (!copyLocked() && navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(marker).then(() => { clipSysOk = true; }, () => {});
   toast(`Copied ${objs.length === 1 ? '1 label' : objs.length + ' labels'}. Press Ctrl+V (or Paste) to put ${objs.length === 1 ? 'it' : 'them'} on the board beside the graph, on this page or any other.`, 5000);
 }
 function geoLabelsToBoard() {
@@ -25442,8 +25505,7 @@ async function mkClipboard(op, mf) {
     if (!t && op === 'cut') { toast('Select part of the equation first (drag across it, or Select all), then Cut.'); return; }
     if (!t) t = mf.value;
     if (!t.trim()) { toast('There is nothing to copy yet.'); return; }
-    mkClip = t; try { localStorage.setItem('cw-mk-clip', t); } catch (e) {}
-    mkWriteSys(t); mf.focus();
+    mkClip = t; if (!copyLocked()) { try { localStorage.setItem('cw-mk-clip', t); } catch (e) {} mkWriteSys(t); } mf.focus();
     if (op === 'cut') { if (t === mf.value || mf.getValue(mf.selection, 'latex') === mf.value) mf.value = ''; else mf.executeCommand('deleteBackward'); mf.dispatchEvent(new Event('input', { bubbles: true })); }
     toast(op === 'cut' ? 'Cut. Tap where it should go, then Paste.' : (mkSelLatex(mf) ? 'Copied what is selected.' : 'Copied the whole equation.') + ' Tap where it should go, then Paste.');
     return;
@@ -25977,7 +26039,7 @@ window.addEventListener('message', e => {
 });
 if (!CAST_VIEW) {
   setInterval(castTick, 50);
-  $('#cast-btn').onclick = () => { castSheet(); openModal('m-cast'); };
+  $('#cast-btn').onclick = () => { if (copyLocked()) { toast(testLocks() ? 'Not available during a test.' : 'Your teacher has turned this off in this class.'); return; } castSheet(); openModal('m-cast'); };
 }
 
 // ---------- the cast tab (what the TV shows) ----------
@@ -26542,6 +26604,7 @@ async function myexRestore(m, key, ex) {
   if (run && !run.disabled) { await myexWait(60); run.click(); }
 }
 function myexBar(m) {
+  if (limited()) return myexStudentBar(m, myexKey(m));
   const key = myexKey(m), sheet = m.querySelector('.sheet'); let bar = sheet.querySelector('.myex');
   if (!key) { if (bar) bar.hidden = true; return; }
   if (!bar) {
@@ -26636,7 +26699,7 @@ async function myexToFile(interactive) {
   return 'download:' + f.name;
 }
 // after each save, change or delete: keep the linked file up to date too (no questions asked)
-function myexSync() { myexToFile(false).then(n => { if (n) toast(`Also saved in ${n}.`); }); }
+function myexSync() { myexToFile(false).then(n => { if (n) toast(`Also saved in ${n}.`); }); if (role === 'teacher') teacherCardsPush(); }
 async function myexStoreClick() {
   const n = await myexToFile(true); if (!n) return;
   if (String(n).startsWith('download:')) toast(`Downloaded a new ${n.slice(9)} with your examples. Replace the old file with it (for example in Google Drive).`);
@@ -26729,7 +26792,7 @@ new MutationObserver(ms => { for (const r of ms) { const m = r.target; if (m.cla
   for (const name of ['openTransform', 'openUnitCircle', 'openCombine', 'openFirstPrinciples', 'openLimits', 'openLimit', 'openContinuity', 'openContinuityFrom',
     'openSketchDeriv', 'openVectors', 'openWordProblems', 'openSolve', 'openSimplify', 'openEvaluate', 'openArea', 'openSolid', 'openMono', 'derivativeBelow', 'addDerivativeFn']) {
     const f = window[name]; if (typeof f !== 'function') continue;
-    window[name] = function (...a) { if (limited()) { toast(msg); return; } return f.apply(this, a); };
+    window[name] = function (...a) { if (limited() && !(FN_ALLOW[name] && FN_ALLOW[name]())) { toast(shareLive() ? 'Your teacher has not shared this with the class.' : msg); return; } return f.apply(this, a); };
   }
 })();
 
@@ -27168,9 +27231,9 @@ try { clipMem = localStorage.getItem('cw-clip'); clipSaved = localStorage.getIte
 const clipNorm = t => String(t || '').replace(/\r\n?/g, '\n').replace(/[ \t]+\n/g, '\n').trim();
 function setInternalClip(objects, marker) {
   clipMem = JSON.stringify({ app: 'class-whiteboard-clip', page: page().id, objects });
-  try { localStorage.setItem('cw-clip', clipMem); } catch (e) {}
+  if (!copyLocked()) try { localStorage.setItem('cw-clip', clipMem); } catch (e) {}
   clipMarker = marker; clipSysOk = false; clipPasteN = 0;
-  clipSaved = marker; try { localStorage.setItem('cw-clip-marker', marker); } catch (e) {}
+  clipSaved = marker; if (!copyLocked()) try { localStorage.setItem('cw-clip-marker', marker); } catch (e) {}
 }
 function copySelection(cut) {
   if (cut && lockGuard(selItems())) return;
@@ -27178,7 +27241,7 @@ function copySelection(cut) {
   const texts = []; (function walk(list) { for (const o of list) { if (o.t === 'text') texts.push(o.s); if (o.t === 'math') texts.push('$' + o.latex + '$'); if (o.children) walk(o.children); } })(items);
   const marker = texts.length ? texts.join('\n') : `[Class Whiteboard: ${items.length} item${items.length > 1 ? 's' : ''}]`;
   setInternalClip(items, marker);
-  if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(marker).then(() => { clipSysOk = true; }, () => {});
+  if (!copyLocked() && navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(marker).then(() => { clipSysOk = true; }, () => {});
   if (cut) { pushHistory(); page().objects = page().objects.filter(o => !items.includes(o)); selected = null; changed(page()); }
   toast(`${cut ? 'Cut' : 'Copied'} ${items.length > 1 ? items.length + ' items' : '1 item'}. Go to any page and press Ctrl+V (or Paste).`);
 }
@@ -27314,7 +27377,7 @@ async function regionCopy() {
   const r = region, c = await renderRegion(r), src = c.toDataURL('image/png');
   setInternalClip([{ t: 'image', id: uid(), src, x: r.x, y: r.y, w: r.w, h: r.h }], null);
   let sys = false;
-  if (navigator.clipboard && navigator.clipboard.write && window.ClipboardItem && window.isSecureContext) {
+  if (!copyLocked() && navigator.clipboard && navigator.clipboard.write && window.ClipboardItem && window.isSecureContext) {
     try { const blob = await new Promise(res => c.toBlob(res, 'image/png')); await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]); sys = true; } catch (e) {}
   }
   clipSysOk = sys; clipMarker = sys ? null : '';
@@ -27610,7 +27673,7 @@ function downloadPdf() {
   const name = role === 'student' || role === 'studentFile' ? `${safeName(board.title)} - ${safeName(studentName)}.pdf` : `${safeName(board.title)}.pdf`;
   pagesToPdf([{ pages: board.pages }], name);
 }
-$('#pdf-btn').onclick = downloadPdf;
+$('#pdf-btn').onclick = () => downloadPdf();
 
 // ===================================================================
 //  File menu
@@ -27765,10 +27828,14 @@ async function dashSavePdfs() {
 }
 // ---- students in a test: no saving, downloading, printing, graphing or screen shade ----
 function testLocks() { return typeof testStudent === 'function' && testStudent(); }
-function testSync() { document.body.classList.toggle('testing', testLocks()); if (testLocks() && typeof SHADE !== 'undefined' && SHADE.on) try { shadeToggle(false); } catch (e) {} if (testLocks() && state.tool === 'explore') try { setTool('pen'); } catch (e) {} }
+function testSync() { document.body.classList.toggle('testing', testLocks()); if (typeof fileSync === 'function') fileSync(); if (testLocks() && typeof SHADE !== 'undefined' && SHADE.on) try { shadeToggle(false); } catch (e) {} if (testLocks() && state.tool === 'explore') try { setTool('pen'); } catch (e) {} }
 for (const name of ['saveFile', 'downloadPdf', 'backupAll', 'saveTemplate', 'graphMath', 'shadeToggle']) {
   const f = window[name]; if (typeof f !== 'function') continue;
-  window[name] = function (...a) { if (testLocks() && !(name === 'shadeToggle' && a[0] === false)) { toast('Not available during a test.'); return; } return f.apply(this, a); };
+  window[name] = function (...a) {
+    if (testLocks() && !(name === 'shadeToggle' && a[0] === false)) { toast('Not available during a test.'); return; }
+    if (fileOff() && ['saveFile', 'downloadPdf', 'backupAll', 'saveTemplate'].includes(name)) { toast('Your teacher has turned off saving and downloading in this class.'); return; }
+    return f.apply(this, a);
+  };
 }
 window.addEventListener('beforeprint', () => { if (testLocks()) toast('Printing is turned off during a test.'); });
 
@@ -27870,6 +27937,16 @@ const CWHR = {
     const r = hTeacherRoom(b); if (!r) return CWENDED();
     r.locked = !!b.locked; hToStudents('lock', { locked: r.locked }); hDirty(); return [200, { ok: true }];
   },
+  '/api/teacher/opts'(b) {
+    const r = hTeacherRoom(b); if (!r) return CWENDED();
+    if ('spages' in b) r.spages = b.spages !== false;
+    if ('sfile' in b) r.sfile = b.sfile !== false;
+    if (b.cards && typeof b.cards === 'object') { r.cards = {}; for (const k in b.cards) if (b.cards[k]) r.cards[k] = true; }
+    if (b.ex && typeof b.ex === 'object') r.ex = b.ex;
+    const o = { spages: r.spages !== false, sfile: r.sfile !== false, cards: r.cards || {}, ex: r.ex || {} };
+    hToStudents('opts', o); hDirty(); return [200, { ok: true, ...o }];
+  },
+  '/api/teacher/resync'(b) { const r = hTeacherRoom(b); if (!r) return CWENDED(); hPush(String(b.sid || ''), 'resync', { page: b.page }); return [200, { ok: true }]; },
   '/api/teacher/goto'(b) { const r = hTeacherRoom(b); if (!r) return CWENDED(); hToStudents('goto', { page: b.page }); return [200, { ok: true }]; },
   '/api/teacher/test'(b) {
     const r = hTeacherRoom(b); if (!r) return CWENDED();
@@ -27905,9 +27982,10 @@ const CWHR = {
     const r = CWH.room; if (!r || String(b.room || '').toUpperCase() !== CWH.code) return [404, { error: 'This class has ended.' }];
     const s = r.students[sid] || (r.students[sid] = { name: 'Student', pages: {} });
     s.name = String(b.name || s.name).slice(0, 40);
-    const pages = b.pages || {}; Object.assign(s.pages, pages);
+    const pages = b.pages && typeof b.pages === 'object' ? b.pages : {};
+    const need = Object.keys(pages).filter(pid => applyWork(s, pid, pages[pid]));
     hToTeacher('student', { sid, name: s.name, online: hOnline(sid), pages });
-    hDirty(); return [200, { ok: true }];
+    hDirty(); return [200, { ok: true, full: need }];
   },
   '/api/student/tevent'(b, sid) {
     const r = CWH.room, s = r && r.students[sid];
@@ -28000,10 +28078,10 @@ function hMsg(conn, raw) {
     conn._sid = id; CWH.conns.set(id, { conn, seen: Date.now() });
     if (old && old.conn !== conn) { old.conn._sid = null; try { old.conn.close(); } catch (e) {} }
     const s = r.students[id] || (r.students[id] = { name: 'Student', pages: {} });
-    s.name = String(m.name || s.name).slice(0, 40);
-    p2pSend(conn, { t: 'ev', ev: 'join', data: { title: r.title, order: r.order, pages: r.pages, work: s.pages, locked: r.locked, test: !!r.test, t: hView(s) } });
+    s.name = String(m.name || s.name).slice(0, 40); s.v = String(m.v || '').slice(0, 20);
+    p2pSend(conn, { t: 'ev', ev: 'join', data: { title: r.title, order: r.order, pages: r.pages, work: s.pages, own: s.own || {}, spages: r.spages !== false, sfile: r.sfile !== false, cards: r.cards || {}, ex: r.ex || {}, locked: r.locked, test: !!r.test, t: hView(s) } });
     p2pSend(conn, { t: 'ev', ev: 'hello', data: { client: id } });
-    hToTeacher('student', { sid: id, name: s.name, online: true, pages: structuredClone(s.pages), full: true });
+    hToTeacher('student', { sid: id, name: s.name, online: true, pages: structuredClone(s.pages), own: structuredClone(s.own || {}), v: s.v, full: true });
     hDirty(); return;
   }
   if (!c || c.conn !== conn) return;          // must say hello first
@@ -28062,8 +28140,8 @@ class TeacherEvents extends P2PEvents {
       const r = CWH.room;
       if (!r || CWH.code !== params.room || r.key !== params.key || !CWH.peer) { this._emit('fail', { message: 'This class has ended. Start a new class.' }); return; }
       this.readyState = 1; if (this.onopen) this.onopen();
-      const roster = Object.entries(r.students).map(([sid, d]) => ({ sid, name: d.name, online: hOnline(sid), pages: structuredClone(d.pages), t: hView(d) }));
-      this._emit('roster', { students: roster, locked: r.locked, test: !!r.test });
+      const roster = Object.entries(r.students).map(([sid, d]) => ({ sid, name: d.name, online: hOnline(sid), pages: structuredClone(d.pages), own: structuredClone(d.own || {}), t: hView(d), v: d.v || '' }));
+      this._emit('roster', { students: roster, locked: r.locked, test: !!r.test, spages: r.spages !== false, sfile: r.sfile !== false, cards: r.cards || {} });
       this._emit('hello', { client: params.client });
     }, 0);
   }
@@ -28099,7 +28177,7 @@ class StudentEvents extends P2PEvents {
   dial() {
     if (this.readyState === 2 || (this.conn && this.conn.open)) return;
     const conn = this.conn = this.peer.connect(P2P_PREFIX + this.p.room, { reliable: true }); this.dialT = Date.now();
-    conn.on('open', () => { if (this.conn !== conn) return; this.seen = Date.now(); p2pSend(conn, { t: 'hello', client: this.p.client, name: this.p.name }); });
+    conn.on('open', () => { if (this.conn !== conn) return; this.seen = Date.now(); p2pSend(conn, { t: 'hello', client: this.p.client, name: this.p.name, v: this.p.v }); });
     conn.on('data', d => {
       if (this.conn !== conn) return;
       this.seen = Date.now();
@@ -28177,6 +28255,235 @@ async function studentUrlCheck(url) {
 }
 
 // ===================================================================
+//  Live class: students' own pages, and sending only what changed
+//  A student can add pages of their own (up to OWN_MAX) after any page of the teacher's, unless the teacher
+//  turns that off. A student's board sends each page whole only the first time; after that it sends the list of
+//  the page's object ids and the objects that are new or changed. The teacher's board keeps the whole page and
+//  checks a fingerprint of it; if it ever differs from the student's, it asks that board for the whole page again.
+// ===================================================================
+const OWN_MAX = 20;
+const BOARD_VERSION = '2026-11-19b';
+let spagesOn = true, sfileOn = true;
+// File menu and Download PDF on a student's board: always off during a test; in a live class the teacher can turn them off
+const fileOff = () => role === 'student' && !sfileOn;
+function fileSync() { document.body.classList.toggle('nofile', fileOff() && !testLocks()); }
+const isOwnId = id => typeof id === 'string' && id.startsWith('own-');
+function fnv(str) { let h = 2166136261; for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
+function pageHash(hs) { let h = (2166136261 ^ hs.length) >>> 0; for (const x of hs) { h ^= x; h = Math.imul(h, 16777619); } return h >>> 0; }
+// a cheap description of an object: long point lists and pictures are named rather than written out (the board
+// replaces them with new ones when they change, never edits them in place)
+const syArrIds = new WeakMap(); let syArrN = 0;
+function objSig(o) {
+  return JSON.stringify(o, (k, v) => {
+    if (Array.isArray(v) && v.length > 64) { let id = syArrIds.get(v); if (!id) { id = ++syArrN; syArrIds.set(v, id); } return '@' + id + ':' + v.length; }
+    if (typeof v === 'string' && v.length > 256) return '#' + v.length + ':' + v.slice(0, 40) + v.slice(-40);
+    return v;
+  });
+}
+const sySent = new WeakMap();   // student's board: object -> { sig, h } (h = fingerprint of the object as sent)
+function objHashLive(o) { const sig = objSig(o), c = sySent.get(o); if (c && c.sig === sig) return c.h; const h = fnv(JSON.stringify(o)); sySent.set(o, { sig, h }); return h; }
+const syRecv = new WeakMap();   // teacher's board (and the class server in it): object -> fingerprint when it arrived
+function objHashRecv(o) { let h = syRecv.get(o); if (h === undefined) { h = fnv(JSON.stringify(o)); syRecv.set(o, h); } return h; }
+// a student's page arriving whole or as changes, into s.pages / s.own; true when the changes need a page we don't have
+function applyWork(s, pid, v) {
+  s.pages = s.pages || {}; s.own = s.own || {};
+  if (v === null) { delete s.pages[pid]; delete s.own[pid]; return false; }
+  if (Array.isArray(v)) { s.pages[pid] = v; return false; }
+  if (!v || typeof v !== 'object') return false;
+  if (v.own && typeof v.own === 'object') s.own[pid] = v.own;
+  if (Array.isArray(v.full)) { s.pages[pid] = v.full; return false; }
+  if (!Array.isArray(v.ids)) return false;
+  const m = new Map((s.pages[pid] || []).map(o => [o && o.id, o]));
+  for (const o of v.put || []) if (o) m.set(o.id, o);
+  const out = []; let miss = false;
+  for (const id of v.ids) { const o = m.get(id); if (o) out.push(o); else miss = true; }
+  s.pages[pid] = out; return miss;
+}
+// a student's pages in order: the teacher's pages, each followed by the pages the student added after it
+function placeOwn(tpl, own) {
+  const by = new Map();
+  for (const o of own) { if (!by.has(o.after)) by.set(o.after, []); by.get(o.after).push(o); }
+  const out = [];
+  for (const t of tpl) { out.push(t); for (const o of by.get(t.id) || []) out.push(o); by.delete(t.id); }
+  for (const rest of by.values()) out.push(...rest);
+  return out;
+}
+function ownPagesFrom(work, own) {
+  return Object.entries(own || {}).sort((a, b) => (a[1].i || 0) - (b[1].i || 0))
+    .map(([id, m]) => ({ id, own: true, after: m.after, bg: m.bg || { type: 'grid' }, base: [], objects: (work && work[id]) || [], rev: 0 }));
+}
+// ---------- student's board ----------
+let SY = { st: {}, meta: {}, gone: new Set() };
+function syReset() { SY = { st: {}, meta: {}, gone: new Set() }; }
+const ownCount = () => board.pages.filter(p => p.own).length;
+function studentPayload() {
+  const pages = {}, here = new Set(); let oi = 0;
+  for (const p of board.pages) {
+    here.add(p.id);
+    const own = p.own ? { after: p.after, bg: p.bg, i: oi++ } : null, ms = own ? JSON.stringify(own) : '';
+    if (sentRev[p.id] === p.rev && !(own && SY.meta[p.id] !== ms)) continue;
+    for (const o of p.objects) if (o.id == null) o.id = uid();
+    const hs = p.objects.map(objHashLive), prev = SY.st[p.id];
+    let v;
+    if (!prev) v = own ? { full: p.objects } : p.objects;
+    else { const put = []; p.objects.forEach((o, i) => { if (prev.get(o.id) !== hs[i]) put.push(o); }); v = { ids: p.objects.map(o => o.id), put, h: pageHash(hs) }; }
+    if (own) v.own = own;
+    SY.st[p.id] = new Map(p.objects.map((o, i) => [o.id, hs[i]])); SY.meta[p.id] = ms; sentRev[p.id] = p.rev;
+    pages[p.id] = v;
+  }
+  for (const id of [...Object.keys(SY.st), ...SY.gone]) if (isOwnId(id) && !here.has(id)) { pages[id] = null; delete SY.st[id]; delete SY.meta[id]; delete sentRev[id]; SY.gone.delete(id); }
+  return pages;
+}
+function studentNeedFull(ids) { let n = 0; for (const id of ids || []) { delete SY.st[id]; delete sentRev[id]; n++; } if (n) scheduleSync(); }
+async function studentSyncNow() {
+  const pages = studentPayload();
+  if (!Object.keys(pages).length) return;
+  try {
+    const r = await post('/api/student/update', { room, sid, name: studentName, pages });
+    setNet(true); studentNeedFull(r && r.full);
+  } catch (e) {
+    for (const id in pages) { if (pages[id] === null) SY.gone.add(id); delete sentRev[id]; delete SY.st[id]; delete SY.meta[id]; }
+    setNet(false);
+    if (e.status === 403 || e.status === 404) { leaveLive(); ask('Live class ended', e.message, [['OK', 1]], { noCancel: true }); return; }
+    clearTimeout(syncT); syncT = setTimeout(syncNow, 3000);
+  }
+}
+function addOwnPage() {
+  if (!spagesOn) return toast('Your teacher has turned off adding pages.');
+  if (isLocked()) return toast('Your teacher has paused drawing.');
+  if (ownCount() >= OWN_MAX) return toast(`You can add up to ${OWN_MAX} pages of your own.`);
+  const here = page(), anchor = here.own ? here.after : here.id, ap = board.pages.find(p => p.id === anchor);
+  pushHistory(true);
+  const p = { ...newPage(ap && isPattern(ap.bg) ? { type: ap.bg.type } : { type: 'grid' }), id: 'own-' + uid(), own: true, after: anchor };
+  board.pages.splice(cur + 1, 0, p); cur++; afterPagesChanged(); changed(page());
+  toast('Page added. Your teacher sees it with the rest of your work.');
+}
+async function delOwnPage() {
+  const p = page();
+  if (!p.own) return toast('You can only delete pages you added.');
+  if (p.objects.length && !(await ask('Delete this page?', 'This page you added, and everything on it, will be removed. You can undo this.', [['Delete page', 'yes', 'danger']]))) return;
+  pushHistory(true); board.pages.splice(cur, 1); cur = Math.min(cur, board.pages.length - 1); afterPagesChanged(); changed(null);
+}
+// ---------- teacher's board ----------
+const syAsked = new Map();
+function askResync(sid, pid) {
+  const k = sid + '|' + pid, t = Date.now();
+  if (t - (syAsked.get(k) || 0) < 5000) return;
+  syAsked.set(k, t);
+  post('/api/teacher/resync', { room, key: tkey, sid, page: pid }).catch(() => {});
+}
+function hashStudentPages(s) { for (const pid in s.pages || {}) for (const o of s.pages[pid] || []) if (o) objHashRecv(o); }
+function teacherApply(sid, s, pages) {
+  for (const [pid, v] of Object.entries(pages)) {
+    if (v && typeof v === 'object') for (const o of (Array.isArray(v) ? v : (v.full || v.put || []))) if (o) objHashRecv(o);
+    const miss = applyWork(s, pid, v);
+    if (miss) askResync(sid, pid);
+    else if (v && v.h !== undefined && pageHash((s.pages[pid] || []).map(objHashRecv)) !== v.h) askResync(sid, pid);
+  }
+}
+function livePages(s) {
+  const tpl = board.pages.map(tp => ({ id: tp.id, bg: tp.bg, base: tp.objects, objects: (s.pages && s.pages[tp.id]) || [] }));
+  return placeOwn(tpl, ownPagesFrom(s.pages, s.own));
+}
+function dashCardPage(s) { return dashMode === 'live' ? s.pages.find(p => p.id === (board.pages[dashPage] || {}).id) : s.pages[dashPage]; }
+async function teacherSpages(on) {
+  try { await post('/api/teacher/opts', { room, key: tkey, spages: on }); spagesOn = on; toast(on ? 'Students can add their own pages.' : 'Students can no longer add pages. Pages they already added stay.'); }
+  catch (e) { toast('Could not change that. ' + (e.message || '')); const c = $('#spages-on'); if (c) c.checked = spagesOn; }
+}
+async function teacherSfile(on) {
+  try { await post('/api/teacher/opts', { room, key: tkey, sfile: on }); sfileOn = on; toast(on ? 'Students can save and download their boards.' : 'Students can no longer save, download or back up their boards.'); }
+  catch (e) { toast('Could not change that. ' + (e.message || '')); const c = $('#sfile-on'); if (c) c.checked = sfileOn; }
+}
+async function copyText(t) {
+  try { await navigator.clipboard.writeText(t); return true; } catch (e) {}
+  try { const a = document.createElement('textarea'); a.value = t; a.style.cssText = 'position:fixed;opacity:0'; document.body.append(a); a.select(); const ok = document.execCommand('copy'); a.remove(); return ok; } catch (e) { return false; }
+}
+function joinCopyShow(url) {
+  const b = $('#join-copy'); if (!b) return;
+  b.hidden = !url;
+  b.onclick = async () => { if (await copyText(url)) { b.textContent = 'Copied'; toast('Link copied. Paste it in Google Classroom, an email or a chat.'); setTimeout(() => { b.textContent = 'Copy'; }, 2000); } else toast('Could not copy. Select the link and copy it.'); };
+}
+
+// ===================================================================
+//  Math cards shared with students in a live class (never during a test), and no copying out
+//  The teacher turns each Math apps card on or off for the class (all off at the start). A shared card also brings
+//  the black-strip tools that lead into it; sharing every card shares every black-strip tool. The teacher's own
+//  examples for a shared card come with it, read-only. When File is off, and always during a test, nothing on a
+//  student's board reaches the device's clipboard or storage, and Cast is hidden.
+// ===================================================================
+const CARD_IDS = ['tf', 'uc', 'cb', 'fp', 'lim', 'ct', 'sd', 'vec', 'wp'];
+const CARD_MODAL = { tf: 'm-tf', uc: 'm-uc', cb: 'm-cb', fp: 'm-solve:fp', lim: 'm-lim', ct: 'm-cont', sd: 'm-sd', vec: 'm-vec', wp: 'm-wp', code: 'm-code' };
+const CARD_STRIP = { ct: ['continuity'], fp: ['firstprinciples'], lim: ['limit'], sd: ['derivative'], vec: ['vectors'] };
+const SV_TOOL = { vop: 'vectors', solve: 'solve', eval: 'evaluate', area: 'area', solid: 'area', simp: 'simplify', fp: 'firstprinciples', mono: 'mono', lim: 'limit' };
+let cardShare = {}, sharedEx = {};
+const shareLive = () => role === 'student' && !testOn;
+const cardOn = id => shareLive() && !!cardShare[id];
+const allCards = () => CARD_IDS.every(id => cardShare[id]);
+function stripOn(t) { return shareLive() && (allCards() || CARD_IDS.some(id => cardShare[id] && (CARD_STRIP[id] || []).includes(t))); }
+const stripOff = t => limited() && !stripOn(t);
+const FN_ALLOW = {
+  openTransform: () => cardOn('tf'), openUnitCircle: () => cardOn('uc'), openCombine: () => cardOn('cb'),
+  openFirstPrinciples: () => cardOn('fp') || stripOn('firstprinciples'), openLimits: () => cardOn('lim'), openLimit: () => stripOn('limit'),
+  openContinuity: () => cardOn('ct') || stripOn('continuity'), openContinuityFrom: () => stripOn('continuity'), openSketchDeriv: () => cardOn('sd'),
+  openVectors: () => cardOn('vec') || stripOn('vectors'), openWordProblems: () => cardOn('wp'), openSolve: () => stripOn('solve'), openSimplify: () => stripOn('simplify'),
+  openEvaluate: () => stripOn('evaluate'), openArea: () => stripOn('area'), openSolid: () => stripOn('area'), openMono: () => stripOn('mono'),
+  derivativeBelow: () => stripOn('derivative'), addDerivativeFn: () => stripOn('derivative'),
+};
+function svAllowed() { const t = SV_TOOL[svMode]; return !t || stripOn(t) || (svMode === 'fp' && cardOn('fp')); }
+let permSig = '';
+// on a student's board: cards and tools that are no longer shared (or a test that starts) close, and the lists update
+function permSync() {
+  if (!limited()) return;
+  const sig = JSON.stringify([shareLive(), CARD_IDS.filter(cardOn)]);
+  if (sig === permSig) return;
+  permSig = sig;
+  for (const id of CARD_IDS) { const mid = CARD_MODAL[id]; if (mid.includes(':')) continue; const m = $('#' + mid); if (m && m.classList.contains('open') && !cardOn(id)) closeModal(mid); }
+  const ms = $('#m-solve'); if (ms && ms.classList.contains('open') && !svAllowed()) closeModal('m-solve');
+  if ($('#m-apps') && $('#m-apps').classList.contains('open')) openApps();
+  if (selected) try { placeCtxBar(); } catch (e) {}
+}
+// ---- teacher's board
+function sharedExamplesOut() {
+  const all = myexAll(), out = {};
+  for (const id of [...CARD_IDS, 'code']) if (id === 'code' || cardShare[id]) { const k = CARD_MODAL[id]; if (all[k] && all[k].length) out[k] = all[k]; }
+  return out;
+}
+let cardsPushT = null;
+function teacherCardsPush() {
+  if (role !== 'teacher') return;
+  clearTimeout(cardsPushT);
+  cardsPushT = setTimeout(() => post('/api/teacher/opts', { room, key: tkey, cards: cardShare, ex: sharedExamplesOut() }).catch(e => toast('Could not share that. ' + (e.message || ''))), 150);
+}
+function setCardShare(id, on) { if (on) cardShare[id] = true; else delete cardShare[id]; teacherCardsPush(); appsShareLine(); }
+function appsShareLine() {
+  const el = $('#apps-share-n'); if (el) el.textContent = `${CARD_IDS.filter(id => cardShare[id]).length} of ${CARD_IDS.length} cards shared`;
+  const l = $('#cards-line'); if (l) l.innerHTML = cardsLineHtml();
+}
+const cardsLineHtml = () => `Math cards shared with students: <b>${CARD_IDS.filter(id => cardShare[id]).length} of ${CARD_IDS.length}</b>. Turn each one on or off in <a href="#" data-a="apps">Math apps</a>.`;
+// ---- a student's examples bar: the teacher's examples for this card, to load (nothing can be saved or changed)
+function myexStudentBar(m, key) {
+  const sheet = m.querySelector('.sheet'); if (!sheet) return;
+  let bar = sheet.querySelector('.myex');
+  if (bar && !bar.classList.contains('ro')) { bar.remove(); bar = null; }
+  const list = (key && role === 'student' && sharedEx[key]) || [];
+  if (!list.length) { if (bar) bar.hidden = true; return; }
+  if (!bar) {
+    bar = document.createElement('div'); bar.className = 'myex ro';
+    bar.innerHTML = `<span class="myex-l">Teacher's examples</span><select aria-label="Teacher's examples"></select>`;
+    const acts = [...sheet.children].reverse().find(c => c.classList && c.classList.contains('actions'));
+    if (acts) sheet.insertBefore(bar, acts); else sheet.append(bar);
+    bar.querySelector('select').onchange = async e => { const l = sharedEx[bar.dataset.key] || [], ex = l[+e.target.value]; if (!ex) return; await myexRestore(m, bar.dataset.key, ex); toast(`Example “${ex.name}” loaded.`); };
+  }
+  bar.hidden = false; bar.dataset.key = key;
+  bar.querySelector('select').innerHTML = `<option value="">Choose an example…</option>` + list.map((e, i) => `<option value="${i}">${esc(e.name)}</option>`).join('');
+}
+// ---- nothing leaves a student's board while File is off, and during a test
+const copyLocked = () => role === 'student' && (testLocks() || fileOff());
+for (const ev of ['copy', 'cut']) document.addEventListener(ev, e => { if (copyLocked()) { e.preventDefault(); e.stopImmediatePropagation(); } }, true);
+document.addEventListener('contextmenu', e => { if (copyLocked() && e.target && /^(CANVAS|IMG|VIDEO|SVG)$/i.test(e.target.tagName)) e.preventDefault(); }, true);
+document.addEventListener('dragstart', e => { if (copyLocked()) e.preventDefault(); }, true);
+
+// ===================================================================
 //  Live class (server.py on the teacher's computer, or the teacher's board itself: see above)
 // ===================================================================
 let joinedRoom = null, es = null, esKey = '', sentRev = {}, sentOrder = '', sentTitle = '', syncT = null, netOk = true;
@@ -28195,7 +28502,7 @@ async function post(url, body) {
 function ensureConnection() {
   const params = { role: role === 'teacher' || role === 'student' ? role : 'solo', client: myClientId() };
   if (role === 'teacher') { params.room = room; params.key = tkey; }
-  if (role === 'student') { params.room = room; params.name = studentName; }
+  if (role === 'student') { params.room = room; params.name = studentName; params.v = BOARD_VERSION; }
   const k = JSON.stringify(params);
   if (es && esKey === k && es.readyState !== 2) return;
   if (es) es.close();
@@ -28207,26 +28514,30 @@ function ensureConnection() {
   on('fail', d => { es.close(); es = null; const wasStudent = role === 'student'; leaveLive(); ask(wasStudent ? 'Could not join' : 'Live class ended', d.message, [['OK', 1]], { noCancel: true }); });
   on('phoneimage', d => { if (isLocked()) return; closeModal('m-phone'); insertImageSrc(d.image).then(() => toast('Photo added from your phone.')); });
   // teacher
-  on('roster', d => { roster.clear(); for (const s of d.students) roster.set(s.sid, { name: s.name, online: s.online, pages: s.pages || {}, t: s.t }); locked = d.locked; testOn = !!d.test; updateRoleUI(); dashRefresh(); sentRev = {}; sentOrder = ''; scheduleSync(true); });
+  on('roster', d => { roster.clear(); for (const s of d.students) { const r = { name: s.name, online: s.online, pages: s.pages || {}, own: s.own || {}, t: s.t, v: s.v || '' }; hashStudentPages(r); roster.set(s.sid, r); } spagesOn = d.spages !== false; sfileOn = d.sfile !== false; cardShare = d.cards || {}; locked = d.locked; testOn = !!d.test; updateRoleUI(); dashRefresh(); sentRev = {}; sentOrder = ''; scheduleSync(true); });
   on('student', d => {
-    const s = roster.get(d.sid) || { name: d.name, online: true, pages: {}, t: null };
+    const s = roster.get(d.sid) || { name: d.name, online: true, pages: {}, own: {}, t: null };
     s.name = d.name; s.online = d.online !== false;
-    if (d.full) s.pages = d.pages || {}; else Object.assign(s.pages, d.pages || {});
+    if (d.full) { s.pages = d.pages || {}; s.own = d.own || {}; s.v = d.v || ''; hashStudentPages(s); if (s.v !== BOARD_VERSION) toast(`${d.name}'s board is an older version. Ask them to open the new student board.`, 6000); } else teacherApply(d.sid, s, d.pages || {});
     roster.set(d.sid, s); updateRoleUI(); dashRefresh(d.sid);
   });
   on('tstudent', d => { const s = roster.get(d.sid); if (!s) return; const old = s.t; s.t = d.t; testAlert(s, old); updateRoleUI(); const card = $(`#dash-grid .card[data-id="${CSS.escape(d.sid)}"]`); if (card) tStatusInto(card.querySelector('.tstat'), { ...s, id: d.sid }); });
   on('tall', d => { testOn = !!d.test; for (const id in d.students) { const s = roster.get(id); if (s) s.t = d.students[id]; } updateRoleUI(); if ($('#dash').classList.contains('open')) buildDash(); });
-  on('test', d => { testOn = !!d.on; testAway = false; if (!testOn) { tst = { ...tst, paused: false, allowed: false, hand: '' }; } renderTest(); toast(testOn ? 'Your teacher started a test.' : 'The test has ended.'); });
+  on('test', d => { testOn = !!d.on; testAway = false; setTimeout(permSync, 0); if (!testOn) { tst = { ...tst, paused: false, allowed: false, hand: '' }; } renderTest(); toast(testOn ? 'Your teacher started a test.' : 'The test has ended.'); });
   on('tstate', d => { tst = d; if (!tst.allowed && testAway && document.visibilityState === 'visible' && document.hasFocus()) testAway = false; renderTest(); });
   on('presence', d => { const s = roster.get(d.sid); if (s) { s.online = d.online; updateRoleUI(); dashRefresh(d.sid); } });
   // student
   on('join', d => {
     const again = joinedRoom === room && board.pages.length && board.title !== 'Joining…';
-    const mine = again ? new Map(board.pages.map(p => [p.id, p])) : null, keepCur = cur;
+    const prev = again ? board.pages : [], mine = again ? new Map(prev.map(p => [p.id, p])) : null, keepCur = cur;
     board = { title: d.title || 'Class board', pages: [] };
     applyTemplate(d, true);
     for (const p of board.pages) { const m = mine && mine.get(p.id); if (m) { p.objects = m.objects; p.rev = (m.rev || 0) + 1; } else if (d.work && d.work[p.id]) p.objects = d.work[p.id]; }
-    locked = d.locked; sentRev = {};
+    const own = again ? prev.filter(p => p.own) : ownPagesFrom(d.work, d.own), ids = new Set(board.pages.map(p => p.id));
+    own.forEach(p => { if (!ids.has(p.after)) p.after = board.pages[0].id; if (again) p.rev = (p.rev || 0) + 1; });
+    board.pages = placeOwn(board.pages, own);
+    spagesOn = d.spages !== false; sfileOn = d.sfile !== false; cardShare = d.cards || {}; sharedEx = d.ex || {}; setTimeout(permSync, 0);
+    locked = d.locked; sentRev = {}; syReset();
     if (again) { cur = Math.min(keepCur, board.pages.length - 1); scheduleSync(); }
     else { undoStack = []; redoStack = []; cur = 0; board.pages.forEach(p => sentRev[p.id] = p.rev); }
     joinedRoom = room;
@@ -28234,6 +28545,21 @@ function ensureConnection() {
     $('#title').value = board.title; afterPagesChanged(); requestRender(true); updateRoleUI();
   });
   on('template', d => applyTemplate(d, false));
+  on('opts', d => {
+    const sp = d.spages !== false, sf = d.sfile !== false, msg = [];
+    if (role === 'student') {
+      if (sp !== spagesOn) msg.push(sp ? 'You can add your own pages again.' : 'Your teacher turned off adding pages. Pages you added stay.');
+      if (sf !== sfileOn && !testLocks()) msg.push(sf ? 'You can save and download again.' : 'Your teacher turned off saving and downloading.');
+    }
+    if (role === 'student' && d.cards && !testOn) {
+      const added = CARD_IDS.filter(id => d.cards[id] && !cardShare[id]).map(id => (APPS.find(a => a[0] === id) || [])[1]).filter(Boolean);
+      if (added.length) msg.push(`Your teacher shared ${added.length > 2 ? added.length + ' math cards' : added.join(' and ')} (Math apps).`);
+    }
+    spagesOn = sp; sfileOn = sf;
+    if (d.cards) cardShare = d.cards; if (d.ex) sharedEx = d.ex;
+    if (role === 'student') { afterPagesChanged(); fileSync(); closeMenus(); permSync(); if (msg.length) toast(msg.join(' ')); }
+  });
+  on('resync', d => { if (role === 'student') studentNeedFull([d.page]); });
   on('lock', d => { locked = d.locked; if (locked) { commitText(); cancelCurve(); live = null; } updateRoleUI(); });
   on('goto', d => { const i = board.pages.findIndex(p => p.id === d.page); if (i >= 0) { gotoPage(i); toast('Your teacher moved you to page ' + (i + 1) + '.'); } });
 }
@@ -28253,12 +28579,16 @@ function applyTemplate(d, full) {
   let focusReset = false;
   const curId = page() && page().id, byId = new Map(board.pages.map(p => [p.id, p]));
   board.title = d.title || board.title; $('#title').value = board.title;
-  board.pages = d.order.map(id => {
+  const oldPages = board.pages;
+  const tplPages = d.order.map(id => {
     const p = byId.get(id) || { id, bg: { type: 'blank' }, base: [], objects: [], rev: 0, tpl: true };
     const t = d.pages[id]; if (t) { if (resetFocus(p, p.base || [], t.objects || [])) focusReset = true; p.bg = t.bg; p.base = t.objects || []; }
     p.tpl = true; return p;
   });
-  if (!board.pages.length) board.pages.push({ ...newPage({ type: 'blank' }), tpl: true });
+  if (!tplPages.length) tplPages.push({ ...newPage({ type: 'blank' }), tpl: true });
+  const keep = new Set(tplPages.map(p => p.id)), own = []; let lastTpl = null;
+  for (const p of oldPages) { if (p.own) { if (!keep.has(p.after)) p.after = lastTpl || tplPages[0].id; own.push(p); } else if (keep.has(p.id)) lastTpl = p.id; }
+  board.pages = placeOwn(tplPages, own);
   const ni = board.pages.findIndex(p => p.id === curId);
   cur = ni >= 0 ? ni : Math.min(cur, board.pages.length - 1);
   if (!selectionValid()) selected = null;
@@ -28272,6 +28602,7 @@ function scheduleSync(force) {
 }
 async function syncNow() {
   if (role !== 'teacher' && role !== 'student') return;
+  if (role === 'student') return studentSyncNow();
   const pages = {};
   for (const p of board.pages) if (sentRev[p.id] !== p.rev) { pages[p.id] = role === 'teacher' ? { bg: p.bg, objects: p.objects } : p.objects; sentRev[p.id] = p.rev; }
   const order = board.pages.map(p => p.id), os = order.join(',');
@@ -28335,6 +28666,7 @@ async function teacherLock(v) { try { await post('/api/teacher/lock', { room, ke
 async function teacherGoto() { try { await post('/api/teacher/goto', { room, key: tkey, page: page().id }); toast(`Students moved to page ${cur + 1}.`); } catch (e) { toast(e.message); } }
 
 function updateRoleUI() {
+  fileSync(); permSync();
   const chip = $('#live-chip'), label = $('#live-label');
   chip.classList.toggle('on', (role === 'teacher' || role === 'student') && netOk);
   chip.classList.toggle('warn', (role === 'teacher' || role === 'student') && !netOk);
@@ -28348,7 +28680,7 @@ function updateRoleUI() {
 }
 async function p2pSheetQr() {
   const u = studentUrl(), qr = $('#join-qr'), ue = $('#join-url'), st = $('#stu-url-state'); if (!qr) return;
-  qr.innerHTML = ''; ue.textContent = ''; if (st) st.textContent = '';
+  qr.innerHTML = ''; ue.textContent = ''; if (st) st.textContent = ''; joinCopyShow('');
   if (!u) { qr.style.display = 'none'; return; }
   const url = `${u}${u.includes('?') ? '&' : '?'}join=${room}`;
   if (st) st.textContent = 'Checking the address…';
@@ -28359,7 +28691,7 @@ async function p2pSheetQr() {
     if (st) st.textContent = r === 'bad' ? 'The address must start with https://' : 'Nothing is at that address yet. Upload whiteboard-student.html there (for example to your GitHub Pages site), or clear the box.';
     const m = $('#p2p-more'); if (m) m.open = true; return;
   }
-  qr.style.display = ''; qrInto(qr, url); ue.textContent = url;
+  qr.style.display = ''; qrInto(qr, url); ue.textContent = url; joinCopyShow(url);
   if (st) st.textContent = r === 'ok' ? 'Found. Students can scan the code or open the address.' : 'Could not check the address from here.';
 }
 function showLiveSheet() {
@@ -28370,13 +28702,16 @@ function showLiveSheet() {
       <div class="actions"><button class="btn primary" data-x>OK</button></div>`;
   } else if (role === 'teacher') {
     sh.innerHTML = (P2P ? `<h2>Class ${esc(room)}</h2><p class="sub">This board is the class server: keep it open, with the screen on, until class ends. Students need to be online but not on the same Wi-Fi. They see everything you put on your board and draw on their own copy. They cannot change yours.</p>
-      <div class="qr-box"><div id="join-qr"></div><div class="url" id="join-url"></div><div>Students open the student board, choose <b>Live class</b> and join with the code <span class="code-big">${esc(room)}</span></div></div>
+      <div class="qr-box"><div id="join-qr"></div><div class="url-row"><div class="url" id="join-url"></div><button class="btn" id="join-copy" hidden>Copy</button></div><div>Students open the student board, choose <b>Live class</b> and join with the code <span class="code-big">${esc(room)}</span></div></div>
       <details class="p2p-more" id="p2p-more"><summary>Where students open the student board</summary>
         <div class="field"><label for="stu-url">Web address of whiteboard-student.html (for the QR code; leave empty if students open it from Google Drive)</label><input id="stu-url" value="${esc(studentUrl())}" placeholder="https://…/whiteboard-student.html" autocomplete="off" spellcheck="false"></div>
         <div class="row"><button class="btn" data-a="stuurl">Save address</button><span class="sub" id="stu-url-state" style="margin:0"></span></div>
         <p class="sub" style="margin-top:8px">From Google Drive: share <b>whiteboard-student.html</b> with your students. On a Chromebook they open it from the <b>Files</b> app › <b>Google Drive</b> (a double-click opens it in Chrome), then choose <b>Live class</b> and type the code.</p>
       </details>` : `<h2>Class ${esc(room)}</h2><p class="sub">Students scan the code or type the address on the same Wi-Fi. They see everything you put on your board and draw on their own copy. They cannot change yours.</p>
-      <div class="qr-box"><div id="join-qr"></div><div class="url" id="join-url">…</div><div>or go to the address without the code and enter <span class="code-big">${esc(room)}</span></div></div>`) + `
+      <div class="qr-box"><div id="join-qr"></div><div class="url-row"><div class="url" id="join-url">…</div><button class="btn" id="join-copy" hidden>Copy</button></div><div>or go to the address without the code and enter <span class="code-big">${esc(room)}</span></div></div>`) + `
+      <label class="chk spg"><input type="checkbox" id="spages-on" ${spagesOn ? 'checked' : ''}> Students can add their own pages (up to ${OWN_MAX} each)</label>
+      <label class="chk spg" style="margin-top:4px"><input type="checkbox" id="sfile-on" ${sfileOn ? 'checked' : ''}> Students can use File and Download PDF (always off during a test)</label>
+      <p class="sub" id="cards-line" style="margin:6px 0 0">${cardsLineHtml()}</p>
       <div class="actions" style="justify-content:space-between">
         <button class="btn danger" data-a="stop">Stop live class</button>
         <span style="display:flex;gap:8px;flex-wrap:wrap">
@@ -28386,7 +28721,8 @@ function showLiveSheet() {
           <button class="btn" data-a="test">${testOn ? 'End test mode' : 'Start test mode'}</button>
           <button class="btn primary" data-a="dash">Class view</button>
         </span></div>`;
-    if (P2P) p2pSheetQr(); else serverBase().then(base => { const url = `${base}/?join=${room}`; qrInto($('#join-qr'), url); $('#join-url').textContent = url; });
+    if (P2P) p2pSheetQr(); else serverBase().then(base => { const url = `${base}/?join=${room}`; qrInto($('#join-qr'), url); $('#join-url').textContent = url; joinCopyShow(url); });
+    { const sp = $('#spages-on'); if (sp) sp.onchange = () => teacherSpages(sp.checked); const sf = $('#sfile-on'); if (sf) sf.onchange = () => teacherSfile(sf.checked); }
   } else if (role === 'student') {
     sh.innerHTML = `<h2>You're in class ${esc(room)}</h2><p class="sub">Signed in as ${esc(studentName)}. Your work goes to your teacher's ${P2P ? 'board' : 'computer'} as you go.</p>
       <div class="actions">${testOn ? '' : '<button class="btn danger" data-a="leave">Leave class</button>'}<button class="btn primary" data-x>Back to the board</button></div>`;
@@ -28409,6 +28745,7 @@ function showLiveSheet() {
     else if (a === 'dash') { closeModal('m-live'); openDash('live'); }
     else if (a === 'join') { const c = $('#join-code').value; closeModal('m-live'); joinClass(c); }
     else if (a === 'leave') { closeModal('m-live'); leaveLive(); }
+    else if (a === 'apps') { closeModal('m-live'); openApps(); }
     else if (a === 'stuurl') { localStorage.setItem('cw-student-url', $('#stu-url').value.trim()); p2pSheetQr(); }
   });
   const jc = $('#join-code'); if (jc) jc.onkeydown = e => { if (e.key === 'Enter') sh.querySelector('[data-a=join]').click(); };
@@ -28588,7 +28925,7 @@ function dashStudents() {
   if (dashMode === 'live') {
     return [...roster.entries()].sort((a, b) => a[1].name.localeCompare(b[1].name)).map(([id, s]) => ({
       id, name: s.name, online: s.online, t: s.t,
-      pages: board.pages.map(tp => ({ id: tp.id, bg: tp.bg, base: tp.objects, objects: s.pages[tp.id] || [] }))
+      pages: livePages(s), extra: Object.keys(s.own || {}).length, v: s.v || ''
     }));
   }
   return fileStudents;
@@ -28614,10 +28951,10 @@ function buildDash() {
     return;
   }
   st.forEach((s, i) => {
-    const b = document.createElement('button'); b.className = 'card'; b.dataset.id = s.id;
+    const b = document.createElement('button'); b.className = 'card'; b.dataset.id = s.id; b.dataset.extra = String(s.extra || 0); b.dataset.v = s.v || '';
     const c = document.createElement('canvas'); c.width = 480; c.height = 300;
     const nm = document.createElement('div'); nm.className = 'name';
-    nm.innerHTML = `${dashMode === 'live' ? `<i class="${s.online ? 'on' : ''}" title="${s.online ? 'Online' : 'Offline'}"></i>` : ''}<span>${esc(s.name)}</span>`;
+    nm.innerHTML = `${dashMode === 'live' ? `<i class="${s.online ? 'on' : ''}" title="${s.online ? 'Online' : 'Offline'}"></i>` : ''}<span>${esc(s.name)}</span>${dashMode === 'live' && s.v !== BOARD_VERSION ? `<em class="oldb" title="This student's board is an older version, so new features and some test restrictions may be missing. Ask them to open the new whiteboard-student.html.">older board</em>` : ''}${s.extra ? `<em class="xp" title="Pages this student added">+${s.extra} page${s.extra > 1 ? 's' : ''}</em>` : ''}`;
     const ts = document.createElement('div'); ts.className = 'tstat'; b.append(c, nm, ts); tStatusInto(ts, s); dashPickInto(b, s); b.onclick = () => { dashZoomHide(); openFocus(i); };
     b.onpointerenter = e => { if (e.pointerType === 'mouse') dashZoom(b, s.id); }; b.onpointerleave = dashZoomHide;
     g.append(b); drawCard(c, s);
@@ -28625,8 +28962,17 @@ function buildDash() {
   // the large view stays on the same student while the grid is redrawn
   if (zid) { const card = g.querySelector(`.card[data-id="${CSS.escape(zid)}"]`); if (card) { dashZoomId = zid; dashZoomCard = card; dashZoomDraw(); } else dashZoomHide(); }
 }
+const dashSoon = new Set(); let dashSoonF = 0;
+function dashDrawSoon(id) {
+  dashSoon.add(id);
+  if (!dashSoonF) dashSoonF = requestAnimationFrame(() => {
+    dashSoonF = 0; const st = dashStudents();
+    for (const k of dashSoon) { const card = $(`#dash-grid .card[data-id="${CSS.escape(k)}"]`), z = st.find(q => q.id === k); if (card && z) drawCard(card.querySelector('canvas'), z); }
+    dashSoon.clear();
+  });
+}
 function drawCard(c, s) {
-  const x = c.getContext('2d'), p = s.pages[dashPage];
+  const x = c.getContext('2d'), p = dashCardPage(s);
   x.setTransform(c.width / PW, 0, 0, c.height / PH, 0, 0);
   if (p) renderPage(x, p, null, true); else { x.fillStyle = '#f2f5fa'; x.fillRect(0, 0, PW, PH); }
 }
@@ -28645,7 +28991,7 @@ function dashZoomDraw() {
   const r = card.getBoundingClientRect(), avH = innerHeight - $('#dash-top').getBoundingClientRect().bottom - 30, W = Math.min(960, avH * PW / PH, Math.max(r.left - 30, innerWidth - r.right - 30, 420)), H = W * PH / PW;
   const c = z.querySelector('canvas'), d = Math.min(window.devicePixelRatio || 1, 2);
   c.style.width = W + 'px'; c.style.height = H + 'px'; c.width = W * d; c.height = H * d;
-  const x = c.getContext('2d'), p = s.pages[dashPage];
+  const x = c.getContext('2d'), p = dashCardPage(s);
   x.setTransform(c.width / PW, 0, 0, c.height / PH, 0, 0);
   if (p) renderPage(x, p); else { x.fillStyle = '#f2f5fa'; x.fillRect(0, 0, PW, PH); }
   z.querySelector('span').textContent = `${s.name} · page ${dashPage + 1}`;
@@ -28663,7 +29009,8 @@ function dashRefresh(id) {
   if (!$('#dash').classList.contains('open')) return;
   if (id) {
     const card = $(`#dash-grid .card[data-id="${CSS.escape(id)}"]`), s = dashStudents().find(z => z.id === id);
-    if (card && s) { drawCard(card.querySelector('canvas'), s); card.querySelector('i') && card.querySelector('i').classList.toggle('on', !!s.online); { const ts = card.querySelector('.tstat'), r = roster.get(id); if (ts && r && dashMode === 'live') tStatusInto(ts, { ...r, id }); } $('#dash-count').textContent = dashMode === 'live' ? `${dashStudents().filter(z => z.online).length} online, ${dashStudents().length} joined` : ''; return; }
+    if (card && s && (String(s.extra || 0) !== (card.dataset.extra || '0') || (s.v || '') !== (card.dataset.v || ''))) { clearTimeout(dashT); dashT = setTimeout(buildDash, 150); return; }
+    if (card && s) { dashDrawSoon(id); card.querySelector('i') && card.querySelector('i').classList.toggle('on', !!s.online); { const ts = card.querySelector('.tstat'), r = roster.get(id); if (ts && r && dashMode === 'live') tStatusInto(ts, { ...r, id }); } $('#dash-count').textContent = dashMode === 'live' ? `${dashStudents().filter(z => z.online).length} online, ${dashStudents().length} joined` : ''; return; }
   }
   clearTimeout(dashT); dashT = setTimeout(buildDash, 150);
 }
@@ -28692,13 +29039,13 @@ $('#file-students').onchange = async e => {
 $('#dash-pdf').onclick = dashSavePdfs;
 $('#dash-selall').onclick = () => { const st = dashStudents(); if (dashSel.size && st.every(s => dashSel.has(s.id))) dashSel.clear(); else st.forEach(s => dashSel.add(s.id)); dashSelUpdate(); };
 $('#dash-pdfdir').onclick = async () => { const h = await pdfBaseDir(true); if (h) toast(`Class sets will be saved in ${h.name}.`, 6000); };
-function openFocus(i) { focusIdx = i; focusPage = dashPage; $('#focus').classList.add('open'); drawFocus(); }
+function openFocus(i) { focusIdx = i; focusPage = dashPage; if (dashMode === 'live') { const s = dashStudents()[i]; const k = s ? s.pages.findIndex(p => p.id === (board.pages[dashPage] || {}).id) : -1; if (k >= 0) focusPage = k; } $('#focus').classList.add('open'); drawFocus(); }
 function drawFocus() {
   const st = dashStudents(), s = st[focusIdx];
   if (!s) { $('#focus').classList.remove('open'); return; }
   focusPage = Math.max(0, Math.min(focusPage, s.pages.length - 1));
   $('#focus-name').textContent = `${s.name}${dashMode === 'live' && !s.online ? ' (offline)' : ''}`;
-  $('#focus-page').textContent = `Page ${focusPage + 1} of ${s.pages.length}`;
+  $('#focus-page').textContent = `Page ${focusPage + 1} of ${s.pages.length}${s.pages[focusPage] && s.pages[focusPage].own ? ' · added by the student' : ''}`;
   const stg = $('#focus-stage').getBoundingClientRect(), k = Math.min((stg.width - 28) / PW, (stg.height - 14) / PH), c = $('#focus-canvas'), d = Math.min(window.devicePixelRatio || 1, 2);
   c.style.width = PW * k + 'px'; c.style.height = PH * k + 'px'; c.width = PW * k * d; c.height = PH * k * d;
   const x = c.getContext('2d'); x.setTransform(k * d, 0, 0, k * d, 0, 0); renderPage(x, s.pages[focusPage]);
